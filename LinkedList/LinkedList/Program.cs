@@ -8,9 +8,9 @@ namespace LinkedList
         {
 
             Linked list = new Linked();
+            list.Add(70);
             list.Add(56);
-            list.Append(30);
-            list.Append(70);
+            list.Insert(1,30);
 
             Console.WriteLine("Final LinkedList sequence is- ");
             list.Display();
