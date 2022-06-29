@@ -7,82 +7,64 @@ namespace LinkedList
 {
     internal class Linked
     {
+        private Node head;
+
         public class Node
         {
             public int data;
             public Node next;
+
             public Node(int data)
             {
                 this.data = data;
             }
         }
-        public static Node head;
-
-        public void Push(int data)
-        {
-            Linked stack = new Linked();
-            stack.Add(data);
-        }
 
         public bool Add(int data)
         {
-            Node node = new Node(data);
-
-            if (node == null)
+            Node n = new Node(data);
+            if (head == null)
             {
-                head = node;
+                head = n;
                 return true;
             }
-            node.next = head;
-            head = node;
+            n.next = head;
+            head = n;
             return true;
 
+
         }
 
+        public bool Append(int data)
+        {
+            Node n = new Node(data);
+            if (head == null)
+            {
+                head = n;
+                return true;
+            }
+
+            Node t = head;
+            while (t.next != null)
+            {
+                t = t.next;
+            }
+            t.next = n;
+            return true;
+        }
         public void Display()
         {
-            Node t = head;
-
-            if (t == null)
-            {
-                Console.WriteLine("Node is empty");
-            }
-            while (t.next != null)
-            {
-                Console.WriteLine(t.data);
-                t = t.next;
-            }
-        }
-
-        public int peek()
-        {
-            if (head == null)
-                throw new NullReferenceException("empty List");
-            Node t = head, p = head;
-            while (t.next != null)
-            {
-                p = t;
-                t = t.next;
-            }
-            int obj = t.data;
-            return obj;
-        }
-
-        public int Pop()
-        {
             if (head == null)
             {
-                throw new NullReferenceException("List is Empty");
+                Console.WriteLine("Linked List is Empty");
+                return;
             }
-            Node t = head, p = head;
-            while (t.next != null)
+            Node temp = head;
+            while (temp != null)
             {
-                p = t;
-                t = t.next;
+                Console.WriteLine(temp.data);
+                temp = temp.next;
             }
-            int obj = t.data;
-            p.next = null;
-            return obj;
         }
     }
 }
