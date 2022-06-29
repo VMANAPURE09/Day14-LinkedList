@@ -7,10 +7,10 @@ namespace LinkedList
         static void Main(string[] args)
         {
 
-            Class1 list = new Class1();
-            list.Add(56);
-            list.Add(30);
+            Linked list = new Linked();
             list.Add(70);
+            list.Add(30);
+            list.Add(56);
             list.Display();
         }
     }

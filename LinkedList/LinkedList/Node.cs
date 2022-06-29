@@ -9,9 +9,7 @@ namespace LinkedList
     public class Node
     {
         public int data;
-        public Node Next;
-        internal object next;
-
+        public Node next;
         public Node(int data)
         {
             this.data = data;
