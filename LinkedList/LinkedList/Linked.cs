@@ -31,36 +31,23 @@ namespace LinkedList
             n.next = head;
             head = n;
             return true;
-
-
         }
 
-        public int Pop(int ind)
+        public bool Search(int input)
         {
-            int obj;
-            if (ind == 0)
+            if (head == null)
             {
-                obj = head.data;
-                head = head.next;
-                return obj;
+                throw new NullReferenceException("empty List");
             }
-            Node t = head, pre = null;
-            while (ind > 0 && t != null)
+
+            Node t = head;
+            while (t != null)
             {
-                ind--;
-                pre = t;
+                if (t.data.Equals(input))
+                    return true;
                 t = t.next;
             }
-
-
-            if (ind == 0)
-            {
-                pre.next = t.next;
-                obj = t.data;
-                return obj;
-            }
-            throw new NullReferenceException("index is not range");
-
+            return false;
 
         }
         public void Display()
